@@ -1,0 +1,72 @@
+<div class="container">
+	<form>
+		<div class="card-header">
+			<div class="low">
+				<div class="col-8" >
+					Cadastro de Cliente
+				
+			</div>
+		</div>
+		
+		<div class="alter alter-primary" role="alert">
+			{{mens}}
+		</div>
+		
+		<div class="card-body">
+			<div class="form-row">
+				
+				<div class="form-group col-md-6">
+					<label for="inputNome">Nome</label>
+					<input type="text" class="form-control" name="inputNome" placeholder="Nome Completo" [(ngModel)]="obj.nome">
+				</div>
+          
+                <div class="form-group col-md-6">
+                    <label for="inputCpfCnpj">CPF/CNPJ</label>
+                     <input type="text" class="form-control" name="inputCpfCnpj" id="inputCpfCnpj" placeholder="000.000.000-00 ou 00.000.000/0000-00" [(ngModel)]="obj.cpfcnpj">
+             </div>
+             
+                <div class="form-group col-md-6">
+                        <label for="inputFone">Telefone</label>
+                         <input type="text" class="form-control" name="inputFone" id="inputFone" placeholder="(00) 0000-0000" [(ngModel)]="obj.fone">
+                </div>
+               
+                    <div class="form-group col-md-6">
+                    <label for="inputEmail">Email</label>
+                    <input type="text" class="form-control" name="inputEmail" placeholder="username@provedor.com" [(ngModel)]="obj.email">
+                </div>
+
+               
+                <div class="form-group col-md-6">
+                            <label for="inputLogin">Usuario</label>
+                            <input type="text" class="form-control" name="inputLogin" placeholder="User" [(ngModel)]="obj.login">
+                </div>
+
+                <div class="form-group col-md-6">
+                            <label for="inputSenha">Senha</label>
+                            <input type="password" class="form-control" name="inputSenha" placeholder="Password" [(ngModel)]="obj.senha">
+                </div>
+
+                <div class="form-group col-md-6">
+                          <label for="inputPerfil">Perfil</label><br>
+						 <!--<input type="text" class="form-control" name="inputPerfil" [(ngModel)]="obj.perfil">-->
+						<select  name="select" class="ls-select" style="width:500px"  [(ngModel)]="obj.perfil" >
+							<option value="" disabled selected>Selecione o Perfil</option>
+							<option value="Cliente">Cliente</option>
+							</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputFuncao">Funçao</label>
+					<input type="text" class="form-control" name="inputFuncao" [(ngModel)]="obj.funcao">
+					
+				</div>
+			</div>
+			<div class="col-4">
+				<button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button> 
+				
+			</div>
+    </div>	
+			
+			
+		</div>
+	</form>
+</div>

@@ -1,0 +1,22 @@
+
+  <body class="text-center">
+
+    <form class="form-signin">
+
+      <img class="mb-4" src="https://www.estudiomx.com.br/templates/yootheme/cache/Home_GestaoWeb-ec15e4a6.png" alt="" width="111" height="111">
+  
+     <h1 class="h3 mb-3 font-weight-normal">Entre Com Login </h1>
+                        <label for="inputLogin" class="sr-only">Usuario</label>
+                        <input type="text" id="inputLogin" class="form-control" [(ngModel)]="objLog.usuario" [ngModelOptions]="{standalone: true}" placeholder="Usuario" required autofocus>
+                        <label for="inputPassword" class="sr-only">Senha</label>
+                        <input type="password" id="inputPassword" class="form-control" [(ngModel)]="objLog.senha" [ngModelOptions]="{standalone: true}" placeholder="Senha" required>
+         <div class="checkbox mb-3">
+   
+          </div>
+               <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="adicionarr()">Entrar</button>
+                <button class="btn btn-lg" type="submit">
+                     <a class="nav-link active"routerLink="/pessoa" >cadastre-se</a>
+                </button>
+                      <p class="mt-5 mb-3 text-muted"> GestaoWeb</p>
+    </form>
+</body>

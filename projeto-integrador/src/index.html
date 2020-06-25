@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ProjetoIntegrador</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript"> $(document).ready(function(){ $('#inputFone').mask('(00) 00000-0000');});</script>
+
+<script type="text/javascript"> $(document).ready(function(){
+  var CpfCnpjMaskBehavior = function (val) {
+          return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
+      },
+  cpfCnpjpOptions = {
+      onKeyPress: function(val, e, field, options) {
+        field.mask(CpfCnpjMaskBehavior.apply({}, arguments), options);
+    }
+  };
+
+$(function() {
+  $('#inputCpfCnpj').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+})
+});</script>

@@ -1,0 +1,49 @@
+<div class="container">
+	<form>
+		<div class="card-header">
+			<div class="low">
+				<div class="col-8" >
+					Tipo de Serviço
+				</div>
+				<div class="col-6">
+					<button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button> |
+					<button type="button" class="btn btn-warning" (click)="alterar()">Alterar</button> |
+					<button type="button" class="btn btn-danger" (click)="excluir()">Excluir</button> |
+					<button type="button" class="btn btn-success" routerLink="/admin">Voltar</button> |
+				</div>
+			</div>
+		</div>
+		
+		<div class="alter alter-primary" role="alert">
+			{{mens}}
+		</div>
+		
+		<div class="card-body">
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="inputCodigo">Codigo</label>
+					<input type="number" class="form-control" name="inputCodigo" [(ngModel)]="obj.id">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputDescricao">Descriçao</label>
+					<input type="text" class="form-control" name="inputDescricao" [(ngModel)]="obj.descricao">
+				</div>
+         </div>	
+			
+			<div class="card">
+				<div class="card-body">
+					<table class="table">
+						<th scope="col"> Codigo </th>
+						<th scope="col"> Descriçao </th>
+						<th scope="col"> ... </th>
+						<tr *ngFor="let obj of lista">
+							<td>{{obj.id}}</td>
+							<td>{{obj.descricao}}</td>
+						    <td><button type="button" class="btn btn-secondary" (click)="carregarDados(obj)">Carregar</button></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

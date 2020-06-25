@@ -1,0 +1,115 @@
+<div class="container">
+	<form>
+		<div class="card-header">
+			<div class="low">
+				<div class="col-8" >
+					Ordem de Serviço
+				</div>
+				<div class="col-6">
+					<button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button> |
+					<button type="button" class="btn btn-warning" (click)="alterar()">Alterar</button> |
+					<button type="button" class="btn btn-danger" (click)="excluir()">Excluir</button> |
+					<button type="button" class="btn btn-success" routerLink="/admin">Voltar</button> |
+				</div>
+			</div>
+		</div>
+		
+		<div class="alter alter-primary" role="alert">
+			{{mens}}
+		</div>
+		
+		<div class="card-body">
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="inputCodigo">Codigo</label>
+					<input type="number" class="form-control" name="inputCodigo" [(ngModel)]="obj.id">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputTipoServico">Tipo de Serviço</label><br>
+					<select class="form-control" name="inputTipoServico" id="inputTipoServico"    on-change="atribuir(a.value)" #a >
+						<option value="" disabled selected>Selecione o Tipo de Serviço:</option>
+						<option *ngFor="let objTipo of listaTipo" value="{{objTipo.id}}"[selected]="objTipo.id === obj.tiposervico.id" >{{objTipo.descricao}}</option>	
+					</select>
+				<!--	<input type="text" class="form-control" name="inputTipoServico" [(ngModel)]="obj.tiposervico.descricao">-->
+				</div>
+          
+                <div class="form-group col-md-6">
+                    <label for="inputPessoaFunc">Funcionario</label><br>
+					<!-- <input type="text" class="form-control" name="inputPessoaFunc" [(ngModel)]="obj.pessoafunc.nome">-->
+					 <select class="form-control" name="inputPessoaFunc" id="inputPessoaFunc"    on-change="atribuiririr(f.value)" #f >
+						<option value="" disabled selected>Selecione o Funcionario:</option>
+						<option *ngFor="let objPess of objPess" value="{{objPess.id}}" [selected]="objPess.id === obj.pessoafunc.id" >{{objPess.nome}}</option>	
+					</select>
+             </div>
+             
+                <div class="form-group col-md-6">
+                        <label for="inputPessoaCli">Cliente</label><br>
+						<!-- <input type="text" class="form-control" name="inputPessoaCli" [(ngModel)]="obj.pessoacli.nome">-->
+						 <select class="form-control" name="inputPessoaCli" id="inputPessoaCli"    on-change="atri(c.value)" #c >
+							<option value="" disabled selected >Selecione o Cliente:</option>
+							<option *ngFor="let objPes of objPes" value="{{objPes.id}}" [selected]="objPes.id === obj.pessoacli.id" >{{objPes.nome}}</option>	
+						</select>
+                </div>
+               
+                <div class="form-group col-md-6">
+                             <label for="inputDataEmissao">Data de Emissao</label><br>
+							<!-- <input type="text" class="form-control" name="inputDataEmissao" [(ngModel)]="obj.dataemissao">-->
+							 <p-calendar id="inputDataEmissao" name="inputDataEmissao" dateFormat="dd.mm.yy" [(ngModel)]="obj.dataemissao" ></p-calendar>
+                </div>
+
+                <div class="form-group col-md-6">
+                        <label for="inputDataFechamento">Data de Fechamento</label><br>
+						<!-- <input type="text" class="form-control" name="inputDataFechamento" [(ngModel)]="obj.datafechamento">-->
+						 <p-calendar id="inputDataFechamento" name="inputDataFechamento" dateFormat="dd.mm.yy" [(ngModel)]="obj.datafechamento"  ></p-calendar>
+                </div>
+                <div class="form-group col-md-6">
+                            <label for="inputStatus">Status</label><br>
+							<!--<input type="text" class="form-control" name="inputStatus" [(ngModel)]="obj.status">-->
+							<select  name="select" class="ls-select" style="width:300px" [(ngModel)]="obj.status" >
+								<option value="" disabled selected >Selecione o Status:</option>
+								<option value="Aberto"  [selected]="'Aberto' === obj.status">Aberto</option>
+								<option value="Entregue"  [selected]="'Entregue' === obj.status">Entregue</option>
+								<option value="Cancelado"  [selected]="'Cancelado' === obj.status">Cancelado</option>
+								<option value="Processado"  [selected]="'Processado' === obj.status">Processado</option>
+							</select>
+                </div>
+
+                <div class="form-group col-md-6">
+                            <label for="inputDescricao">Descricao</label>
+                            <input type="text" class="form-control" name="inputDescricao" [(ngModel)]="obj.descricao">
+                </div>
+
+                <div class="form-group col-md-6">
+                          <label for="inputLocal">local</label><br>
+					<!--	<input type="text" class="form-control" name="inputLocal" [(ngModel)]="obj.local">-->
+						<select class="form-control" name="inputLocal" id="inputLocal"    on-change="atribuirir(l.value)" #l >
+							<option value="" disabled selected>Selecione o Local:</option>>
+							<option *ngFor="let objLab of listaLab" value="{{objLab.id}}"  [selected]="objLab.id === obj.laboratoriosala.id" >{{objLab.nome}}</option>	
+						</select>
+                </div>
+    </div>	
+			
+			<div class="card">
+				<div class="card-body">
+					<table class="table">
+						<th scope="col"> Codigo </th>
+						<th scope="col"> Tipo de Servico </th>
+                        <th scope="col"> Funcionario </th>
+                        <th scope="col"> Cliente </th>
+                        <th scope="col"> Status </th>
+                        <th scope="col"> ... </th>
+						<tr *ngFor="let obj of lista">
+							<td>{{obj.id}}</td>
+                            <td>{{obj.tiposervico.descricao}}</td>
+                            <td>{{obj.pessoafunc.nome}}</td>
+                            <td>{{obj.pessoacli.nome}}</td>
+                            <td>{{obj.status}}</td>
+						    <td><button type="button" class="btn btn-secondary" (click)="carregarDados(obj)">Carregar</button></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+

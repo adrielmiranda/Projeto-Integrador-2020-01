@@ -1,0 +1,115 @@
+<div class="container">
+	<form>
+		<div class="card-header">
+			<div class="low">
+				<div class="col-8" >
+					Gerar Ordem de Serviço
+				
+			
+			</div>
+		</div>
+		
+		<div class="alter alter-primary" role="alert">
+			{{mens}}
+		</div>
+		
+		<div class="card-body">
+			<div class="form-row">
+				
+				<!--<div class="form-group col-md-6">
+					<label for="inputTipoServico">Tipo de Servico</label>
+					<input type="text" class="form-control" name="inputTipoServico" [(ngModel)]="obj.tiposervico.descricao">
+				</div>-->
+				<div class="form-group col-md-6">
+					<label for="inputTipoServico">Tipo de Servico</label>
+					<select class="form-control" name="inputTipoServico" id="inputTipoServico"    on-change="atribuir(a.value)" #a >
+						<option value="" disabled selected>Selecione o Tipo de Serviço:</option>
+						<option *ngFor="let objTipo of listaTipo" value="{{objTipo.id}}" >{{objTipo.descricao}}</option>
+						
+					</select>
+				</div>
+              
+             
+                <div class="form-group col-md-6">
+						<label for="inputPessoaCli">Nome</label>
+						<select class="form-control" name="inputPessoaCli" id="inputPessoaCli"    on-change="atri(c.value)" #c >
+							<option value="" disabled selected >Selecione o Cliente:</option>
+							<option *ngFor="let objPes of objPes" value="{{objPes.id}}"  >{{objPes.nome}}</option>	
+						</select>
+						<!-- <input type="text" class="form-control" name="inputPessoaCli" [(ngModel)]="id">-->
+						 
+                </div>
+               
+                <div class="form-group col-md-6">
+                             <label for="inputDataEmissao">Data de Emissao</label><br>
+						   <!--  <input type="text" class="form-control" name="inputDataEmissao" [(ngModel)]="obj.dataemissao">-->
+						   <p-calendar id="inputDataEmissao" name="inputDataEmissao" [(ngModel)]="obj.dataemissao" dateFormat="dd/mm/yy" ></p-calendar>
+                </div>
+
+               
+                <div class="form-group col-md-6">
+                            <label for="inputStatus">Status</label><br>
+						   <!-- <input type="text" class="form-control" name="inputStatus" [(ngModel)]="obj.status">-->
+						   <select  name="select" class="ls-select" style="width:300px" [(ngModel)]="obj.status" >
+							<option value="" disabled selected>Selecione o Status:</option>
+							<option value="Aberto" >Aberto</option>
+							</select>
+                </div>
+
+                <div class="form-group col-md-6">
+                            <label for="inputDescricao">Descricao</label>
+                            <input type="text" class="form-control" name="inputDescricao" [(ngModel)]="obj.descricao">
+				</div>
+				
+
+                <div class="form-group col-md-6">
+                          <label for="inputLocal">local</label>
+					  <!--  <input type="text" class="form-control" name="inputLocal" [(ngModel)]="obj.local">-->
+					  <select class="form-control" name="inputLocal" id="inputLocal"    on-change="atribuirir(ll.value)" #ll >
+						<option value="" disabled selected>Selecione o Local:</option>
+						<option *ngFor="let objLab of listaLab" value="{{objLab.id}}" >{{objLab.nome}}</option>
+						
+					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPessoaFunc">Forma de Atendimento</label>
+					<select class="form-control" name="inputPessoaFunc" id="inputPessoaFunc"    on-change="atria(d.value)" #d >
+						<option value="" disabled selected >Selecione a Forma de Atendimento:</option>
+						<option  value= 4  >Normal</option>	
+						<option  value= 3  >Preferencial</option>	
+					</select>
+					<!-- <input type="text" class="form-control" name="inputPessoaCli" [(ngModel)]="id">-->
+					 
+			</div>
+				
+                <div class="col-4">
+
+					<button type="button" class="btn btn-primary"  (click)="adicionar()">Adicionar</button> 
+					
+				</div>
+    </div>	
+			
+			<div class="card">
+				<div class="card-body">
+					<table class="table">
+						<th scope="col"> Codigo </th>
+						<th scope="col"> Tipo de Servico </th>
+						<th scope="col"> Cliente </th>
+						<th scope="col"> Status </th>
+						<th scope="col"> Local </th>
+                        <th scope="col"> Historico </th>
+						<tr *ngFor="let obj of lista">
+							<td>{{obj.id}}</td>
+                            <td>{{obj.tiposervico.descricao}}</td>
+							<td>{{obj.pessoacli.nome}}</td>
+							<td>Aberto</td>
+							<td>{{obj.laboratoriosala.nome}}</td>
+							<td><button type="button" class="btn btn-secondary" >...</button> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		</div>
+	</form>
+</div>
